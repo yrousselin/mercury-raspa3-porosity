@@ -4,7 +4,7 @@
 
 A Python tool for **Mercury** (CCDC) that compares the **measured** and **simulated** porosity of a porous material (MOF, ZIF, COF…). It takes the crystal structure open in Mercury, runs gas-adsorption simulations with **RASPA3**, computes BET surface areas and geometric pore descriptors, and puts everything side by side with your experimental isotherm.
 
-Version 1.3.
+Version 1.4.
 
 ## What it does
 
@@ -18,7 +18,7 @@ Version 1.3.
 **Adsorbates available:** N₂ (77 K), Ar (87 K), CO₂ (273 K).
 **Experimental data:** `.xlsx`, `.xls`, `.csv` or a table pasted into the window. BELSORP/BELMaster exports are recognised.
 
-The window has five tabs. **The interface is in French:** *Structure*, *Données expérimentales* (experimental data), *Paramètres RASPA* (RASPA settings), *Calcul* (run), *Résultats* (results).
+The window has five tabs: *Structure*, *Experimental data*, *RASPA settings*, *Calculation*, *Results*. The interface, messages and reports are in English.
 
 ## Requirements
 
@@ -77,10 +77,10 @@ On Windows, write the first command with `%USERPROFILE%\RASPA_Mercury\qt_libs` i
 
 1. Open the structure in Mercury and run **CSD Python API → raspa3_mercury_porosity**. The window opens.
 2. **Structure** tab: check the P1 model. Disorder and solvent options are on by default.
-3. **Données expérimentales** tab: load your isotherm file or paste a table (P/P0 and adsorbed amount in cm³ STP/g).
-4. **Paramètres RASPA** tab: choose the gas, check the cycle numbers, and give the path of `raspa3` the first time. It is remembered afterwards. The **Auto** button picks the smallest supercell allowed by the cut-off.
-5. **Calcul** tab: click **Run RASPA Simulation**. A progress bar shows the remaining time. You can also click **Analyser sans simulation** for a quick experiment-plus-geometry comparison.
-6. **Résultats** tab: figures and the comparison table. All files are saved in `~/RASPA_Mercury/<structure>_<gas>_<date>/`.
+3. **Experimental data** tab: load your isotherm file or paste a table (P/P0 and adsorbed amount in cm³ STP/g).
+4. **RASPA settings** tab: choose the gas, check the cycle numbers, and give the path of `raspa3` the first time. It is remembered afterwards. The **Auto** button picks the smallest supercell allowed by the cut-off.
+5. **Calculation** tab: click **Run RASPA Simulation**. A progress bar shows the remaining time. You can also click **Analyse without simulation** for a quick experiment-plus-geometry comparison.
+6. **Results** tab: figures and the comparison table. All files are saved in `~/RASPA_Mercury/<structure>_<gas>_<date>/`: `_results.xlsx`, `_report.pdf`, `_report.html`, CSV files and PNG figures.
 
 **Without Mercury (batch mode, for tests or remote machines):**
 
@@ -110,6 +110,11 @@ python raspa3_mercury_porosity.py --help      # all options
 - **Force fields:** UFF (Rappé *et al.*, *J. Am. Chem. Soc.* **1992**, 114, 10024); DREIDING (Mayo *et al.*, *J. Phys. Chem.* **1990**, 94, 8897); TraPPE (Potoff & Siepmann, 2001).
 - The tool uses the CSD Python API from the Cambridge Crystallographic Data Centre (CCDC).
 - Written by Yoann Rousselin with the help of Claude (Anthropic) as a coding assistant.
+
+## Version history
+
+- **1.4** (November 2026): the whole tool is now in English (interface, messages, reports, Excel sheets and columns, file names, code comments). Output files are renamed accordingly, for example `_results.xlsx` and `_report.pdf` instead of `_resultats.xlsx` and `_rapport.pdf`.
+- **1.3** (November 2026): first public version.
 
 ## Licence
 
